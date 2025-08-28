@@ -3,7 +3,7 @@ function getArticleText(params) {
     if (article) return article.innerText;
     
     const paragraphs = Array.from(document.querySelectorAll('p'));
-    return paragraphs.map(p => p.innerText).join('\n');
+    return paragraphs.map((p) => p.innerText).join('\n');
 }
 
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {

@@ -4,7 +4,7 @@ document.getElementById("summarize").addEventListener("click", async () => {
 
   const summaryType = document.getElementById("summary-type").value;
 
-  // Dapat data API key dari storage
+  // Dapat data API key dari penyimpanan 
   chrome.storage.sync.get(["geminiApiKey"], async (result) => {
     if (!result.geminiApiKey) {
       resultDiv.innerHTML =
@@ -63,7 +63,7 @@ document.getElementById("copy-btn").addEventListener("click", () => {
 });
 
 async function getGeminiSummary(text, summaryType, apiKey) {
-  // Truncate very long texts to avoid API limits (typically around 30K tokens)
+  // Truncate/summarize teks yang sangat panjang untuk menghindari batasan API (biasanya sekitar 30.000 token).
   const maxLength = 20000;
   const truncatedText =
     text.length > maxLength ? text.substring(0, maxLength) + "..." : text;
